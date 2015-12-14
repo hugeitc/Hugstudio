@@ -2,9 +2,172 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:weightSum="10"
     android:orientation="vertical" >
-    <TextView android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_world"/>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:orientation="horizontal"
+        android:weightSum="3">
+        <RelativeLayout 
+            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_weight="2">
+            <ImageView android:id="@+id/img_Main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img1"/>
+            <TextView android:id="@+id/tvMainImage_Meaning"
+                style="@style/TextMainImageMeaning"
+                android:layout_alignParentBottom="true"
+                android:text="Main Meaning"/>
+        </RelativeLayout>
+        <LinearLayout android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/holo_red_light"></LinearLayout>
+        <LinearLayout 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:weightSum="2"
+            android:orientation="vertical">
+	        <RelativeLayout 
+	            android:layout_height="0dp"
+	            android:layout_width="match_parent"
+	            android:layout_weight="1">
+	            <ImageView android:id="@+id/img_Sub1"
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:layout_alignParentTop="true"
+	                android:layout_centerInParent="true"
+	                android:scaleType="centerCrop"
+	                android:src="@drawable/small_2"/>
+	            <TextView android:id="@+id/tvSub1Image_Meaning"
+	                style="@style/TextSubImageMeaning"
+	                android:layout_alignParentBottom="true"
+	                android:text="Sub1 Meaning"/>
+	        </RelativeLayout>
+	        <LinearLayout android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/holo_red_light"></LinearLayout>
+	        <RelativeLayout 
+	            android:layout_height="0dp"
+	            android:layout_width="match_parent"
+	            android:layout_weight="1">
+	            <ImageView android:id="@+id/img_Sub2"
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:layout_alignParentTop="true"
+	                android:layout_centerInParent="true"
+	                android:scaleType="centerCrop"
+	                android:src="@drawable/small_3"/>
+	            <TextView android:id="@+id/tvSub2Image_Meaning"
+	                style="@style/TextSubImageMeaning"
+	                android:layout_alignParentBottom="true"
+	                android:text="Sub2 Meaning"/>
+	        </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/holo_red_light"></LinearLayout>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <LinearLayout 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:weightSum="3"
+            android:orientation="vertical">
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+	            <TextView android:id="@+id/tvSample1"
+	                style="@style/TextMeaning"
+	                android:text="sample 1"/>
+            </LinearLayout>
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+	            <TextView android:id="@+id/tvSample2"
+	                style="@style/TextMeaning"
+	                android:text="sample 1"/>
+	        </LinearLayout>
+	        <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+	            <TextView android:id="@+id/tvSample3"
+	                style="@style/TextMeaning"
+	                android:text="sample 1"/>
+	        </LinearLayout>
+        </LinearLayout>
+        <LinearLayout 
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:weightSum="3"
+            android:orientation="vertical">
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+	            <TextView android:id="@+id/tvSample4"
+	                style="@style/TextMeaning"
+	                android:text="sample 1"/>
+            </LinearLayout>
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+	            <TextView android:id="@+id/tvSample5"
+	                style="@style/TextMeaning"
+	                android:text="sample 1"/>
+	        </LinearLayout>
+	        <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+	            <TextView android:id="@+id/tvSample6"
+	                style="@style/TextMeaning"
+	                android:text="sample 1"/>
+	        </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="3"
+        android:orientation="horizontal">
+        <Button android:id="@+id/btnGenerate"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:text="Generate"/>
+        <Button android:id="@+id/btnShare"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:text="Share"/>
+        <Button android:id="@+id/btnFlip"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:text="Flip"/>
+    </LinearLayout>
 
 </LinearLayout>
