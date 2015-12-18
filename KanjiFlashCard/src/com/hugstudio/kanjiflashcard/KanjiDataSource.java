@@ -33,4 +33,20 @@ public class KanjiDataSource {
 		return kanji;
 		
 	}
+	
+	public String[] getKanjiSample(int stt, int colIndex){
+		
+		String[] kanjiList = new String[6];
+		Cursor cursor = database.rawQuery("Select * FROM sampletable WHERE kanjistt ="+stt, null);
+		
+		if(cursor!=null){
+			cursor.moveToFirst();
+		}
+		for(int i=0;i<cursor.getCount();i++){
+			kanjiList[i] = cursor.getString(colIndex);
+			cursor.moveToNext();
+		}
+		return kanjiList;
+		
+	}
 }

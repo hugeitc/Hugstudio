@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bk_ground"
+    android:weightSum="10" >
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
+        <TextView android:id="@+id/tvOn"
+            style="@style/TextFlip"
+            android:text="On"
+            android:layout_marginBottom="10dp"/>
+        <TextView android:id="@+id/tvKun"
+            style="@style/TextFlip"
+            android:text="Kun"
+            android:layout_marginBottom="10dp"/>
+        <TextView android:id="@+id/tvLongMean"
+            style="@style/TextFlip"
+            android:text="Long Meanning"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp">
+        
+    </LinearLayout>
+	<LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+        <TextView android:id="@+id/tvFlipSample1"
+            style="@style/TextSample"
+            android:text="Sample 1"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"/>
+        <TextView android:id="@+id/tvFlipSample2"
+            style="@style/TextSample"
+            android:text="Sample 1"
+            android:layout_marginBottom="10dp"/>
+        <TextView android:id="@+id/tvFlipSample3"
+            style="@style/TextSample"
+            android:text="Sample 3"
+            android:layout_marginBottom="10dp"/>
+        <TextView android:id="@+id/tvFlipSample4"
+            style="@style/TextSample"
+            android:text="Sample 4"
+            android:layout_marginBottom="10dp"/>
+        <TextView android:id="@+id/tvFlipSample5"
+            style="@style/TextSample"
+            android:text="Sample 5"
+            android:layout_marginBottom="10dp"/>
+        <TextView android:id="@+id/tvFlipSample6"
+            style="@style/TextSample"
+            android:text="Sample 6"
+            android:layout_marginBottom="10dp"/>
+    </LinearLayout>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <Button android:id="@+id/btnFlipBack"
+            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:text="Flip"
+            android:onClick="OnFlippedBackToMain"/>
+    </LinearLayout>
+</LinearLayout>

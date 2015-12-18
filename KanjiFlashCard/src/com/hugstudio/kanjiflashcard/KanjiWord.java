@@ -1,7 +1,13 @@
 package com.hugstudio.kanjiflashcard;
 
-public class KanjiWord {
+import java.io.Serializable;
+
+public class KanjiWord implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name,shortMean, longMean, on, kun; 
 	
 	public KanjiWord() {
