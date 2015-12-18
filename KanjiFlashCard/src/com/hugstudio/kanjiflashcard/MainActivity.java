@@ -6,6 +6,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -60,6 +63,24 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.main, menu);
+	    return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    if(item.getItemId() == R.id.action_settings) {
+	        Intent intent = new Intent(this,InfoActivity.class);
+	        startActivity(intent);
+            return true;
+	    }
+		return false;
+	}
+	
 	private void setSimpleToView(String[] sampleList) {
 		// TODO Auto-generated method stub
 		TextView tvSample1 = (TextView)findViewById(R.id.tvSample1);
@@ -135,7 +156,7 @@ public class MainActivity extends Activity {
 		int id = view.getId();
 		switch(id){
 			case R.id.img_Sub1:
-				randomNum = randomNum1;
+				randomNum = Integer.parseInt(kanji1.getName());
 				randomNum1	 = new Random().nextInt((8) + 1) + 1;
 				while(randomNum1==randomNum){
 					randomNum1	 = new Random().nextInt((8) + 1) + 1;
@@ -147,7 +168,7 @@ public class MainActivity extends Activity {
 				kanji = new KanjiWord(kanji1);
 				break;
 			case R.id.img_Sub2:
-				randomNum = randomNum2;
+				randomNum = Integer.parseInt(kanji2.getName());
 				randomNum1	 = new Random().nextInt((8) + 1) + 1;
 				while(randomNum1==randomNum){
 					randomNum1	 = new Random().nextInt((8) + 1) + 1;
