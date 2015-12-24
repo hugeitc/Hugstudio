@@ -1,5 +1,18 @@
 package com.hugstudio.chuyenbenlycafe;
 
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -19,6 +32,8 @@ public class MainActivity extends Activity {
 	private GridView photoGrid;
 	private int mPhotoSize, mPhotoSpacing;
 	private ImageAdapter imageAdapter;
+	private List<YoutubeObj>lstVideo = new ArrayList<YoutubeObj>();
+	private MySAXParser myXMLHandler;
 
 // Some items to add to the GRID
 	private static final String[] CONTENT = new String[] { "Akon", "Justin Bieber", "AlRight", "Big Sean",
@@ -46,6 +61,31 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		try {   
+		    /**
+		    * Create a new instance of the SAX parser
+		    **/
+		    SAXParserFactory saxPF = SAXParserFactory.newInstance();
+		    SAXParser saxP = saxPF.newSAXParser();
+		    XMLReader xmlR = saxP.getXMLReader();
+		 
+		         
+		    URL url = new URL("https://dl.dropboxusercontent.com/u/27529224/chuyenbenlycafe.xml"); // URL of the XML
+		         
+		    /** 
+		    * Create the Handler to handle each of the XML tags. 
+		    **/
+		    myXMLHandler = new MySAXParser();
+		    xmlR.setContentHandler(myXMLHandler);
+		    xmlR.parse(new InputSource(url.openStream()));
+		         
+		} catch (Exception e) {
+		    System.out.println(e);
+		}
+		finally{
+			lstVideo = new ArrayList<YoutubeObj>(myXMLHandler.lstVideo);
+		}
 		setContentView(R.layout.activity_main);
 	
 	// get the photo size and spacing
@@ -120,6 +160,7 @@ public class MainActivity extends Activity {
 			return position;
 		}
 	
+		@SuppressLint("InflateParams")
 		public View getView(final int position, View view, ViewGroup parent) {
 	
 			if (view == null)
