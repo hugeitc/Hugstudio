@@ -4,5 +4,6 @@
     <string name="app_name">Chuyen ben ly cafe</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-
+	<string name="service_name">Chuyen ben ly cafe</string>
+	<string name="strLoad">Loading...</string>
 </resources>

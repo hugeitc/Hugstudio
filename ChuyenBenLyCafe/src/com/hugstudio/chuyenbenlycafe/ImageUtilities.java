@@ -16,7 +16,7 @@ public class ImageUtilities {
 	
 	public static byte[] downloadBitmap(String _url) throws IOException{
 
-		URL url = new URL("http://img.youtube.com/vi/"+_url+"/default.jpg");
+		URL url = new URL("http://img.youtube.com/vi/"+_url+"/hqdefault.jpg");
 		HttpURLConnection con = (HttpURLConnection) url.openConnection();
 		con.setRequestMethod("GET");
 		con.setReadTimeout(10000);
@@ -29,6 +29,14 @@ public class ImageUtilities {
 			con.disconnect();
 		}
 		return bos.toByteArray();
+	}
+	
+	public static Bitmap createBitmapFromByteArray(byte[] data){
+		Bitmap bmp;
+		BitmapFactory.Options options = new BitmapFactory.Options();
+		options.inMutable = true;
+		bmp = BitmapFactory.decodeByteArray(data, 0, data.length, options);
+		return bmp;
 	}
 
 }
