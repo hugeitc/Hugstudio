@@ -3,9 +3,13 @@ package com.hugstudio.chuyenbenlycafe;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubeApiServiceUtil;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -130,7 +134,30 @@ public class MainActivity extends Activity {
 			 //title.setText(CONTENT[position % CONTENT.length]);
 			cover.setImageBitmap(ImageUtilities.createBitmapFromByteArray(lstVideo.get(position).getImg()));
 			title.setText(lstVideo.get(position).getSubject());
+			
+			//set OnClick for image
+			cover.setOnClickListener(new View.OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					//check if youtube app available
+					//call Youtube Activity to play video
+					final YouTubeInitializationResult result = YouTubeApiServiceUtil.isYouTubeApiServiceAvailable(getApplicationContext());
 
+					if (result != YouTubeInitializationResult.SUCCESS) {
+					    //If there are any issues we can show an error dialog.
+					    result.getErrorDialog(MainActivity.this, 0).show();
+					}
+					else{
+						Intent intent = new Intent(getApplicationContext(), YouTubeFragmentActivity.class);
+						intent.putExtra("videoID", lstVideo.get(position).getUrl());
+						intent.putExtra("videoTitle", lstVideo.get(position).getSubject());
+						startActivity(intent);
+					}
+				}
+			});
+			
 			return view;
 		}
 	}

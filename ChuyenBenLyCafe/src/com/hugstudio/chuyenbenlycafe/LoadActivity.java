@@ -27,10 +27,30 @@ public class LoadActivity extends Activity{
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.loading_layout);
-		checkFirstRun();
-		Intent intent = new Intent(this, MainActivity.class);
+		
+		Thread loadContent = new Thread(){
+			@Override
+			public void run(){
+				try{
+					super.run();
+					checkFirstRun();
+				}
+				catch(Exception ex){
+					ex.printStackTrace();
+				}
+				finally{
+					Intent intent = new Intent(LoadActivity.this, MainActivity.class);
+					startActivity(intent);
+					finish();
+				}
+			}
+		};
+		loadContent.start();
+		
+		//checkFirstRun();
+		//Intent intent = new Intent(this, MainActivity.class);
 
-		startActivity(intent);
+		
 	}
 	
 	
