@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Chuyen ben ly cafe</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Chuyện bên ly cafe</string>
 	<string name="service_name">Chuyen ben ly cafe</string>
 	<string name="strLoad">Loading… </string>
 	<string name="DEV_KEY">AIzaSyDSko0PEGuqHUXSsygUv_lGalmgYhbtQb4</string>

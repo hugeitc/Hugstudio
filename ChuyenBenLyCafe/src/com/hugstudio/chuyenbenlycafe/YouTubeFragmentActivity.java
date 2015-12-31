@@ -2,6 +2,7 @@ package com.hugstudio.chuyenbenlycafe;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -23,6 +24,7 @@ public class YouTubeFragmentActivity extends FragmentActivity  {
 		YoutubeFragment youtubeFrag = (YoutubeFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_youtube);
 		youtubeFrag.setVideoID(video_id);
 		youtubeFrag.setVideoTitle(video_title);
+		
 		
 		//ads
 		AdView mAdViewTop = (AdView) findViewById(R.id.adViewTop);

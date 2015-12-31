@@ -6,6 +6,6 @@
 	<color name="transparent">#00000000</color>
 	<color name="white">#fff</color>
 	<color name="black">#000</color>
-	<color name="loadingGround">#D967E9</color>
+	<color name="loadingGround">#ACFA58</color>
 
 </resources>

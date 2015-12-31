@@ -60,7 +60,7 @@ public class YoutubeDatabaseHelper extends SQLiteOpenHelper {
 	public List<YoutubeObj> getAllVideo(){
 		List<YoutubeObj> lstVideo = new ArrayList<YoutubeObj>();
 		
-		String _sql = "SELECT * FROM youtube";
+		String _sql = "SELECT * FROM youtube ORDER BY id DESC";
 		
 		SQLiteDatabase db = getReadableDatabase();
 		Cursor cursor = db.rawQuery(_sql, null);

@@ -3,6 +3,8 @@ package com.hugstudio.chuyenbenlycafe;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubeApiServiceUtil;
 
@@ -21,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -28,6 +31,8 @@ public class MainActivity extends Activity {
 	private int mPhotoSize, mPhotoSpacing;
 	private ImageAdapter imageAdapter;
 	private List<YoutubeObj> lstVideo = new ArrayList<YoutubeObj>();
+	private int count = 0;
+	InterstitialAd mInterstitialAd;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +73,10 @@ public class MainActivity extends Activity {
 						}
 					}
 				});
+		mInterstitialAd = new InterstitialAd(this);
+		mInterstitialAd.setAdUnitId("ca-app-pub-4481753127919607/3276353513");
+		AdRequest adRequest = new AdRequest.Builder().build();
+		mInterstitialAd.loadAd(adRequest);
 	}
 
 	// ///////// ImageAdapter class /////////////////
@@ -159,6 +168,20 @@ public class MainActivity extends Activity {
 			});
 			
 			return view;
+		}
+	}
+	
+	@Override
+	public void onBackPressed(){
+		if(count ==0){
+			Toast.makeText(this, "Press Back again to exit!", Toast.LENGTH_LONG).show();
+			count++;
+		}
+		else{
+			if (mInterstitialAd.isLoaded()) {
+	            mInterstitialAd.show();
+			}
+			finish();
 		}
 	}
 
